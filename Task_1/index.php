@@ -1,19 +1,27 @@
 <?php
-$works = [
-
-    [
-      "name" => "Студент",
-      "dateStart" => "ноябрь 20225",
-      "dateEnd" => "декабрь 2023",
-      "description" => "Обучение в GeekBrains на тестировщика",
-    ],
-    [
-        "name" => "Ведущий специалист",
-        "dateStart" => "июнь 2010",
-        "dateEnd" => "июнь 2022",
-        "description" => "Плюшки от работодателя",
-    ],
-    
+$name = "Ekaterina";
+$profession = "Social worker";
+$country = "Russia";
+$email = "hrumu@muhru.hru";
+$telegram = "https://t.me/puk";
+$skills = [
+  [
+    'name' => 'Python',
+    'percent' => 10,
+  ],
+  [
+    'name' => 'Functional testing',
+    'percent' => 0,
+  ],
+  [
+    'name' => 'Test automation',
+    'percent' => 0,
+  ],
+  
+  [
+    'name' => 'SQL',
+    'percent' => 10,
+  ],
 ];
 ?>
 
@@ -21,7 +29,7 @@ $works = [
 <html lang="en">
 
 <head>
-  <title>Alexander K. QA-engineer</title>
+  <title>Ekaterina</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

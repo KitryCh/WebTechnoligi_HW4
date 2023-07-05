@@ -18,9 +18,10 @@ $works = [
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Мое резюме</title>
+  <title>Alexander K. QA-engineer</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -41,6 +42,7 @@ $works = [
     }
   </style>
 </head>
+
 <body class="w3-light-grey">
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
@@ -50,54 +52,37 @@ $works = [
       <div class="w3-third">
         <div class="w3-white w3-text-grey w3-card-4">
           <div class="w3-display-container">
-            <img src="https://imgfon.ru/Images/Details_img_880px/Animals/glaza-belyy_fon-kotik-morda-polosatyy.webp"
-              style="width:100%" alt="Avatar">
+            <img src="IMG_photo.png" style="width:100%" alt="Avatar">
             <div class="w3-display-bottomleft w3-container w3-text-black">
-              <h2>Екатерина</h2>
+              <h2><?php echo $name; ?></h2>
             </div>
           </div>
           <div class="w3-container">
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Профессия</p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Город, страна</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>E-mail</p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Телефон</p>
+            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $profession; ?></p>
+            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $country; ?></p>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $email; ?></p>
+            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $telegram; ?></p>
 
             <hr>
 
-            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Навыки</b></p>
-            <p>Adobe Photoshop</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-            </div>
-            <p>Photography</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-                <div class="w3-center w3-text-white">80%</div>
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+            <?php for ($i = 0; $i < count($skills); $i++) : ?>
+              <p><?php echo $skills[$i]['name']; ?></p>
+              <div class="w3-light-grey w3-round-xlarge w3-small">
+                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?= $skills[$i]['percent']; ?>%"><?= $skills[$i]['percent']; ?>%</div>
               </div>
-            </div>
-            <p>Illustrator</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-            </div>
-            <p>Media</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-            </div>
+            <?php endfor; ?>
             <br>
 
-            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Языки</b>
+            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b>
             </p>
-            <p>Английский</p>
+            <p>Russian</p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
             </div>
-            <p>Испанский</p>
+            <p>English</p>
             <div class="w3-light-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-            </div>
-            <p>Немецкий</p>
-            <div class="w3-light-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+              <div class="w3-round-xlarge w3-teal" style="height:24px;width:80%"></div>
             </div>
             <br>
           </div>
@@ -108,49 +93,36 @@ $works = [
       <!-- Right Column -->
       <div class="w3-twothird">
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы</h2>
-
-          <?php for ($i = 0; $i < count($works); $i++): ?>  
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work experience</h2>
+          <?php for ($j = 0; $j < count($work_experience); $j++) : ?>
             <div class="w3-container">
-                <h5 class="w3-opacity"><b><?php echo $works[$i]['name']?></b></h5>
-                <h6 class="w3-text-teal">
-                    <i class="fa fa-calendar fa-fw w3-margin-right"></i>
-                    <?php echo $works[$i]['dateStart'];?> - 
-                    <?php if ($i == 0): ?>
-                    <span
-                    class="w3-tag w3-teal w3-round"><?php echo $works[$i]['dateEnd'];?>
-                </span>
-                <?php else: ?>
-                    <?php echo $works[$i]['dateEnd']; ?>
-                <?php endif; ?>    
-                </h6>
-                <p><?php echo $works[$i]['description'];?></p>
-                <hr>
+              <h5 class="w3-opacity"><b><?php echo $work_experience[$j]['position']; ?> / <?php echo $work_experience[$j]['company']; ?></b></h5>
+              <?php
+              if ($work_experience[$j]['date_end'] == 'Current') {
+                $out = '<span class="w3-tag w3-teal w3-round">Current</span>';
+              } else {
+                $out = $work_experience[$j]['date_end'];
+              } ?>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><?php echo $work_experience[$j]['date_start']; ?> - <?php echo $out; ?></h6>
+              <p><?php echo $work_experience[$j]['info']; ?></p>
+              <hr>
             </div>
           <?php endfor; ?>
-          </div>
+        </div>
 
-          
         <div class="w3-container w3-card w3-white">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Образование</h2>
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
           <div class="w3-container">
-            <h5 class="w3-opacity"><b>gb.ru</b></h5>
+            <h5 class="w3-opacity"><b>GeekBrains</b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
-            <p>Web Development! All I need to know in one place</p>
+            <p>Software Tester</p>
             <hr>
           </div>
           <div class="w3-container">
-            <h5 class="w3-opacity"><b>London Business School</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
+            <h5 class="w3-opacity"><b>Kovrov State Technological Academy of V.A Degtyarev</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2015</h6>
             <p>Master Degree</p>
             <hr>
-          </div>
-          <div class="w3-container">
-            <h5 class="w3-opacity"><b>School of Coding</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
-            <p>Bachelor Degree</p><br>
           </div>
         </div>
         <!-- End Right Column -->
@@ -162,10 +134,10 @@ $works = [
   <!-- Footer -->
   <footer class="w3-container w3-teal w3-center w3-margin-top">
     <p>Find me on social media.</p>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https://github.com/Lexxx42" class="fa fa-github" aria-hidden="true"></a>
+    <a href="https://t.me/Lexx_042" class="fa fa-telegram" aria-hidden="true"></a>
     <!-- End footer -->
   </footer>
 </body>
+
 </html>
